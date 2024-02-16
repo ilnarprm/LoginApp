@@ -34,8 +34,16 @@ final class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomVC = segue.destination as? WelcomViewController
-        welcomVC?.welcom = userNameTextField.text
+        let tabBarVC = segue.destination as? UITabBarController
+        
+        tabBarVC?.viewControllers?.forEach { viewControllers in
+            if let welcomVC = viewControllers as? WelcomViewController {
+                welcomVC.welcom = userNameTextField.text
+            } else if let navigationVC = viewControllers as? UINavigationController {
+                let userInfoVC = navigationVC.topViewController as? UserInfoViewController
+                userInfoVC?.view.backgroundColor = .systemMint
+            }
+        }
     }
     
     private func showAlert(withTitle title: String, andMassage message: String) {

@@ -16,7 +16,7 @@ final class WelcomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        welcomLabel.text = ("Welcom, \(String(welcom))")
+        welcomLabel.text = "Welcom, \(String(welcom))"
     }
 }
 
