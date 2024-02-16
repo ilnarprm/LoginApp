@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard userNameTextField.text == user, passwordTextField.text == password else {
             // Введенное имя не валидно, отменяем переход и показываем алерт контроллер
-            showAlert(withTitle: "asdfd", andMassage: "sadfa")
+            showAlert(withTitle: "User Name or Password incorrect", andMassage: "Input correct data")
             return false
         }
         // Введенное имя валидно, разрешаем переход
